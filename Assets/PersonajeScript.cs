@@ -28,6 +28,12 @@ public class PersonajeScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject);
+        AlimentoScript alimento;
+        alimento = other.GetComponent<AlimentoScript>();
+        if (alimento)
+        {
+            TomarAlimento(alimento.valorAlimentario);
+            Destroy(other.gameObject);
+        }
     }
 }
